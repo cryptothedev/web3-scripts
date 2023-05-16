@@ -3,6 +3,13 @@ import { HardhatUserConfig } from 'hardhat/config'
 
 import { ConfigService } from './src/services/config.service'
 
+const accounts = {
+  mnemonic: ConfigService.getMnemonic(),
+  path: "m/44'/60'/0'/0",
+  initialIndex: 0,
+  count: 30,
+}
+
 const config: HardhatUserConfig = {
   solidity: '0.8.18',
   typechain: {
@@ -11,29 +18,19 @@ const config: HardhatUserConfig = {
   networks: {
     eth: {
       url: 'https://eth.llamarpc.com',
-      accounts: {
-        mnemonic: ConfigService.getMnemonic(),
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 31,
-      },
+      accounts,
     },
     zk: {
       url: 'https://mainnet.era.zksync.io',
-      accounts: {
-        mnemonic: ConfigService.getMnemonic(),
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 31,
-      },
+      accounts,
     },
     arbitrum: {
       url: 'https://evocative-small-wave.arbitrum-mainnet.discover.quiknode.pro/7e16177013dd55e962aa2c83e4520c4e90e44ee5/',
-      accounts: [ConfigService.getSecretKey()],
+      accounts,
     },
     bsc: {
       url: 'https://bsc-dataseed1.binance.org/',
-      accounts: [ConfigService.getSecretKey()],
+      accounts,
     },
   },
 }
