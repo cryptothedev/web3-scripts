@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "compile": "npx hardhat compile && npx hardhat typechain",
-    "run-example": "npx hardhat --network {{networkName}} run src/scripts/{{example}}/run.ts"
+    "only-sell": "npx hardhat --network bsc run src/scripts/pinksale/onlySell.ts"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
