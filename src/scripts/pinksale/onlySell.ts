@@ -38,3 +38,5 @@ const main = async () => {
       myAddress,
   )
 }
+
+main()
