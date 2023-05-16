@@ -1,9 +1,14 @@
-import {requireNetwork} from "../../utils/requireNetwork";
-import {NetworkName} from "../../models/NetworkName";
-import {BSC} from "../../constants/BSC";
-import {tryToSwap} from "./tryToSwap";
-import {ERC20Tradeable__factory, PancakeRouter__factory, PinkSaleClaim__factory} from "../../../typechain-types";
-import {ethers} from "hardhat";
+import { ethers } from 'hardhat'
+
+import {
+  ERC20Tradeable__factory,
+  PancakeRouter__factory,
+  PinkSaleClaim__factory,
+} from '../../../typechain-types'
+import { BSC } from '../../constants/BSC'
+import { NetworkName } from '../../models/NetworkName'
+import { requireNetwork } from '../../utils/requireNetwork'
+import { tryToSwap } from './tryToSwap'
 
 const main = async () => {
   requireNetwork(NetworkName.BSC)
@@ -13,29 +18,31 @@ const main = async () => {
   const myAddress = signer.address
 
   const pinkSaleClaim = PinkSaleClaim__factory.connect(
-      BSC.PINKSALE_CLAIM,
-      signer,
+    BSC.PINKSALE_CLAIM,
+    signer,
   )
 
   const { token: tokenAddress } = await pinkSaleClaim.poolSettings()
+  console.log('tokenAddress', tokenAddress)
   const token = ERC20Tradeable__factory.connect(tokenAddress, signer)
   const pancakeRouter = PancakeRouter__factory.connect(
-      BSC.PANCAKE_ROUTER,
-      signer,
+    BSC.PANCAKE_ROUTER,
+    signer,
   )
   const amountIn = await token.balanceOf(myAddress)
   const amountOutMin = '0'
 
   // action
-  await token.approve(BSC.PANCAKE_ROUTER, amountIn)
+  const tx = await token.approve(BSC.PANCAKE_ROUTER, amountIn)
+  await tx.wait(1)
 
   await tryToSwap(
-      token,
-      pancakeRouter,
-      amountIn,
-      amountOutMin,
-      tokenAddress,
-      myAddress,
+    token,
+    pancakeRouter,
+    amountIn,
+    amountOutMin,
+    tokenAddress,
+    myAddress,
   )
 }
 
