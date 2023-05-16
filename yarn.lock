@@ -1058,13 +1058,6 @@
   dependencies:
     "@types/node" "*"
 
-"@wardenswap/bestrate-sdk@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@wardenswap/bestrate-sdk/-/bestrate-sdk-2.1.4.tgz#6800d4b2f7bd10789f95cc9775db8ea0300ac52c"
-  integrity sha512-oLOe3Fkh0EuTzV2Z5CEWZs4jw6nZN0VtAhQSi3x1LRfLYtfBDAgzaxUrben5iOM5fFd3NB0WvE2gY0wEA3WCtg==
-  dependencies:
-    ethers "^5.6.0"
-
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -2209,7 +2202,7 @@ ethers@^4.0.40:
     uuid "2.0.1"
     xmlhttprequest "1.8.0"
 
-ethers@^5.4.7, ethers@^5.6.0:
+ethers@^5.4.7:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.7.2.tgz#3a7deeabbb8c030d4126b24f84e525466145872e"
   integrity sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==
