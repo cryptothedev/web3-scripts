@@ -1,49 +1,10 @@
-import { BigNumber } from 'ethers'
-import { ethers } from 'hardhat'
+import {ethers} from 'hardhat'
 
-import {
-  ERC20Tradeable,
-  ERC20Tradeable__factory,
-  PancakeRouter,
-  PancakeRouter__factory,
-  PinkSaleClaim__factory,
-} from '../../../typechain-types'
-import { BSC } from '../../constants/BSC'
-import { NetworkName } from '../../models/NetworkName'
-import { getDeadline } from '../../utils/getDeadline'
-import { requireNetwork } from '../../utils/requireNetwork'
-
-const tryToSwap = async (
-  token: ERC20Tradeable,
-  pancakeRouter: PancakeRouter,
-  amountIn: BigNumber,
-  amountOutMin: string,
-  tokenAddress: string,
-  myAddress: string,
-) => {
-  if (await token.tradingEnabled().catch(() => true)) {
-    const tx =
-      await pancakeRouter.swapExactTokensForETHSupportingFeeOnTransferTokens(
-        amountIn,
-        amountOutMin,
-        [tokenAddress, BSC.BNB],
-        myAddress,
-        getDeadline(),
-      )
-    console.log('swapped successfully')
-    console.log(tx)
-    return
-  }
-
-  await tryToSwap(
-    token,
-    pancakeRouter,
-    amountIn,
-    amountOutMin,
-    tokenAddress,
-    myAddress,
-  )
-}
+import {ERC20Tradeable__factory, PancakeRouter__factory, PinkSaleClaim__factory,} from '../../../typechain-types'
+import {BSC} from '../../constants/BSC'
+import {NetworkName} from '../../models/NetworkName'
+import {requireNetwork} from '../../utils/requireNetwork'
+import {tryToSwap} from "./tryToSwap";
 
 const main = async () => {
   requireNetwork(NetworkName.BSC)

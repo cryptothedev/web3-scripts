@@ -1,6 +1,6 @@
 export const BSC = {
-  WSS_PROVIDER: '',
   PINKSALE_CLAIM: '0x15d3bf44b57ed1282e5335ac6c1b30935ee7d58e',
+  WSS_PROVIDER: 'wss://smart-late-meme.bsc.discover.quiknode.pro/e7242bda2278cdc2b4c43977e24bcc818d8022dc/',
   PANCAKE_ROUTER: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   BNB: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
 }
