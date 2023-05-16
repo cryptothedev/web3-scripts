@@ -1,6 +1,6 @@
 import { ethers } from 'hardhat'
 
-import { wait } from '../utils/wait'
+import { wait } from '../../utils/wait'
 
 export const generateWallets = async () => {
   while (true) {
