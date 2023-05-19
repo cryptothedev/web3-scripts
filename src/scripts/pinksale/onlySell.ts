@@ -33,8 +33,7 @@ const main = async () => {
   const amountOutMin = '0'
 
   // action
-  const tx = await token.approve(BSC.PANCAKE_ROUTER, amountIn)
-  await tx.wait(1)
+  await token.approve(BSC.PANCAKE_ROUTER, amountIn).then((tx) => tx.wait(1))
 
   await tryToSwap(
     token,
