@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "compile": "npx hardhat compile && npx hardhat typechain",
-    "only-sell": "npx hardhat --network bsc run src/scripts/pinksale/onlySell.ts",
-    "claim-sell": "npx hardhat --network bsc run src/scripts/pinksale/claimAndSell.ts"
+    "only-sell": "npx hardhat --network bsc run src/scripts/pinksale/approve-and-sell.ts",
+    "claim-sell": "npx hardhat --network bsc run src/scripts/pinksale/claim-and-sell.ts"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
