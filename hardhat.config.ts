@@ -7,7 +7,7 @@ const accounts = {
   mnemonic: ConfigService.getMnemonic(),
   path: "m/44'/60'/0'/0",
   initialIndex: 0,
-  count: 33,
+  count: 1,
 }
 
 const config: HardhatUserConfig = {
