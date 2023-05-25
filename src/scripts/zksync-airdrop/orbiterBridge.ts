@@ -1,5 +1,6 @@
 import { ethers } from 'hardhat'
 
+import { ZKSYNC } from '../../constants/ZKSYNC'
 import { NetworkName } from '../../models/NetworkName'
 import { requireNetwork } from '../../utils/requireNetwork'
 import { wait } from '../../utils/wait'
@@ -33,6 +34,7 @@ export const orbiterBridge = async () => {
       await signer.sendTransaction({
         to: CONTRACT_ADDRESS,
         value: ethAmount,
+        gasPrice: ZKSYNC.GasPrice,
       })
     } catch (e) {
       console.error('failed to bridge', address)

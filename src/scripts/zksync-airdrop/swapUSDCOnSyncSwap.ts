@@ -42,6 +42,7 @@ export const swapUSDCOnSyncSwap = async () => {
         getDeadline(),
         {
           value: ethAmount,
+          gasPrice: ZKSYNC.GasPrice,
         },
       )
       console.log('hash', tx.hash, tx.blockHash, tx.blockNumber)
