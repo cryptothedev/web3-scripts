@@ -29,6 +29,7 @@ export const swapUsdcToEth = async () => {
           address,
           getDeadline(),
           [false, false],
+          { gasPrice: ZKSYNC.GasPrice },
         )
       console.log('hash', tx.hash, tx.blockHash, tx.blockNumber)
       console.log(address, 'swapped')

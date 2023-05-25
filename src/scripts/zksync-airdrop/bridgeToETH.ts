@@ -20,7 +20,10 @@ export const bridgeToETH = async () => {
         ZKSYNC.L2EthToken,
         signer,
       )
-      const tx = await bridgeContract.withdraw(address, { value: ethAmount })
+      const tx = await bridgeContract.withdraw(address, {
+        value: ethAmount,
+        gasPrice: ZKSYNC.GasPrice,
+      })
       console.log('hash', tx.hash, tx.blockHash, tx.blockNumber)
       console.log(address, 'bridged to eth')
     } catch (e) {
