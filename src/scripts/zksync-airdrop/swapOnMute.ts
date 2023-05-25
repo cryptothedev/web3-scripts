@@ -28,7 +28,11 @@ export const swapOnMute = async () => {
           address,
           getDeadline(),
           [false, false],
-          { value: ethers.utils.parseEther('0.001'), gasPrice: ZKSYNC.GasPrice },
+          {
+            value: ethers.utils.parseEther('0.001'),
+            gasPrice: ZKSYNC.GasPrice,
+            gasLimit: ZKSYNC.GasLimit,
+          },
         )
       console.log('hash', tx.hash, tx.blockHash, tx.blockNumber)
       console.log(address, 'swapped')

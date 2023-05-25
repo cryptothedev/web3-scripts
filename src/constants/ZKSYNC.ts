@@ -15,4 +15,5 @@ export const ZKSYNC = {
   ZKApeClaim: '0x9aA48260Dc222Ca19bdD1E964857f6a2015f4078',
   ZKApe: '0x47EF4A5641992A72CFd57b9406c9D9cefEE8e0C4',
   GasPrice: ethers.utils.parseUnits('0.25', 'gwei') ,
+  GasLimit: '1000000'
 }
