@@ -1,3 +1,5 @@
+import { ethers } from 'hardhat'
+
 export const ZKSYNC = {
   ZERO: '0x0000000000000000000000000000000000000000',
   // tokens
@@ -11,5 +13,6 @@ export const ZKSYNC = {
   VELOCORE: '0x46dbd39e26a56778d88507d7aEC6967108C0BD36',
   SYNCSWAP: '0x2da10A1e27bF85cEdD8FFb1AbBe97e53391C0295',
   ZKApeClaim: '0x9aA48260Dc222Ca19bdD1E964857f6a2015f4078',
-  ZKApe: '0x47EF4A5641992A72CFd57b9406c9D9cefEE8e0C4'
+  ZKApe: '0x47EF4A5641992A72CFd57b9406c9D9cefEE8e0C4',
+  GasPrice: ethers.utils.parseUnits('0.25', 'gwei') ,
 }

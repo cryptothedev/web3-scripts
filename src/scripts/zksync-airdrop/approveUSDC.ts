@@ -17,7 +17,11 @@ export const approveUSDC = async () => {
     try {
       console.log(address, 'approving')
       const usdcContract = ERC20__factory.connect(ZKSYNC.USDC, signer)
-      await usdcContract.approve(ZKSYNC.MUTE, ethers.utils.parseUnits('300', 6))
+      await usdcContract.approve(
+        ZKSYNC.MUTE,
+        ethers.utils.parseUnits('300', 6),
+        { gasPrice: ZKSYNC.GasPrice },
+      )
       console.log(address, 'approved')
     } catch (e) {
       console.error('failed to approve', address, e)

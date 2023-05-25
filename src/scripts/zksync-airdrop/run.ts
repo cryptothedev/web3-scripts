@@ -1,9 +1,9 @@
 import { checkRunningAddresses } from '../../utils/checkRunningAddresses'
-// import { swapUSDCOnSyncSwap } from './swapUSDCOnSyncSwap'
+import { approveUSDC } from './approveUSDC'
 
 const main = async () => {
   await checkRunningAddresses()
-  // await swapUSDCOnSyncSwap()
+  await approveUSDC()
 }
 
 main()
