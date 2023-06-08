@@ -3,4 +3,5 @@ export enum NetworkName {
   ZK = 'zk',
   ARBITRUM = 'arbitrum',
   BSC = 'bsc',
+  OP = 'optimism',
 }
